@@ -47,8 +47,8 @@ try {
   // Update version
   packageJson.version = version;
 
-  // Write updated package.json back to file
-  fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
+  // Write updated package.json back to file with a newline at the end
+  fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2) + '\n');
 
   console.log(`Updated package.json to version ${version}`);
 } catch (error) {
