@@ -10,7 +10,22 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "minify-html": "html-minifier-terser --input-dir build --output-dir build --file-ext html --collapse-whitespace --remove-comments --minify-css true --minify-js true",
     "update-version": "node update-version.js",
+    "release-alpha": "standard-version --prerelease alpha",
+    "release-beta": "standard-version --prerelease beta",
+    "release-rc": "standard-version --prerelease rc",
     "release": "standard-version"
+  },
+  "standard-version": {
+    "types": [
+      {"type": "feat", "section": "Features"},
+      {"type": "fix", "section": "Bug Fixes"},
+      {"type": "chore", "hidden": true},
+      {"type": "docs", "hidden": true},
+      {"type": "style", "hidden": true},
+      {"type": "refactor", "hidden": true},
+      {"type": "perf", "hidden": true},
+      {"type": "test", "hidden": true}
+    ]
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.0.0",
