@@ -32,7 +32,7 @@ try {
   let version = match[1];
   if (match[2]) {
     // Convert -alpha.1 to a1
-    const preRelease = match[2].replace(/-/, '').replace(/\./g, '');
+    const preRelease = match[2].replace(/-alpha/, 'a').replace(/-beta/, 'b').replace(/-rc/, 'rc').replace(/-/, '');
     version += preRelease;
   }
 
