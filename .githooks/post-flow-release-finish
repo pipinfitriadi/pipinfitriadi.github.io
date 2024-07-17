@@ -8,3 +8,4 @@
 
 # Run npm update-version
 npm run update-version
+git commit -am "fix: update version on package.json"
