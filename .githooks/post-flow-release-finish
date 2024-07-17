@@ -8,4 +8,5 @@
 
 # Run npm update-version
 npm run update-version
+npm install --package-lock-only
 git commit -am "fix: update version on package.json"
