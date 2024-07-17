@@ -60,6 +60,7 @@ By setting up a custom Git hooks directory within your project and configuring G
     ```bash
     chmod +x post-flow-release-finish
     chmod +x post-flow-hotfix-finish
+    cd ..
     ```
 
 3. Configure Git to use your custom hooks directory:
