@@ -20,8 +20,8 @@ try {
     process.exit(1);
   }
 
-  // Validate and convert the tag format
-  const semverRegex = /^v?(\d+\.\d+\.\d+)(-[\w\.]+)?$/;
+  // Validate and ensure the tag format is semantic versioning
+  const semverRegex = /^v?(\d+\.\d+\.\d+(-[\w\.]+)?)$/;
   const match = latestTag.match(semverRegex);
 
   if (!match) {
@@ -29,12 +29,7 @@ try {
     process.exit(1);
   }
 
-  let version = match[1];
-  if (match[2]) {
-    // Convert -alpha.1 to a1
-    const preRelease = match[2].replace(/-alpha/, 'a').replace(/-beta/, 'b').replace(/-rc/, 'rc').replace(/-/, '');
-    version += preRelease;
-  }
+  const version = match[1];
 
   // Get __dirname equivalent in ES modules
   const __filename = fileURLToPath(import.meta.url);
