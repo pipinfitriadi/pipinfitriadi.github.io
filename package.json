@@ -22,5 +22,8 @@
 		"vite": "^5.0.3",
 		"html-minifier-terser": "^7.0.0"
 	},
+	"optionalDependencies": {
+		"@rollup/rollup-linux-x64-gnu": "^4.18.1"
+	},
 	"type": "module"
 }
