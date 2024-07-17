@@ -58,8 +58,8 @@ By setting up a custom Git hooks directory within your project and configuring G
 2. Make the scripts executable:
 
     ```bash
-    chmod +x post-flow-release-finish
-    chmod +x post-flow-hotfix-finish
+    chmod +x pre-flow-release-finish
+    chmod +x pre-flow-hotfix-finish
     ```
 
 3. Configure Git to use your custom hooks directory:
@@ -94,7 +94,7 @@ By setting up a custom Git hooks directory within your project and configuring G
         git flow hotfix finish <version>
         ```
 
-        The `post-flow-hotfix-finish` hook will automatically trigger `npm run update-version`.
+        The `pre-flow-hotfix-finish` hook will automatically trigger `npm run update-version`.
 
     Finishing a Release
 
@@ -116,4 +116,4 @@ By setting up a custom Git hooks directory within your project and configuring G
         git flow release finish <version>
         ```
 
-        The `post-flow-release-finish` hook will automatically trigger `npm run update-version`.
+        The `pre-flow-release-finish` hook will automatically trigger `npm run update-version`.
