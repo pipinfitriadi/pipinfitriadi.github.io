@@ -1,0 +1,10 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Svelte: Create project",
+            "type": "shell",
+            "command": "npm create svelte@latest",
+        }
+    ]
+}
