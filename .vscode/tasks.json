@@ -5,6 +5,22 @@
             "label": "Svelte: Create project",
             "type": "shell",
             "command": "npm create svelte@latest",
+        },
+        {
+            "label": "Svelte: Install dependencies",
+            "type": "shell",
+            "command": "npm install",
+        },
+        {
+            "label": "Svelte: Build production",
+            "type": "shell",
+            "command": "npm run build",
+        },
+        {
+            "label": "Svelte: Preview Prod",
+            "type": "shell",
+            "dependsOn": "Svelte: Build production",
+            "command": "npm run preview"
         }
     ]
 }
