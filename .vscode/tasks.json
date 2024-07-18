@@ -4,7 +4,7 @@
         {
             "label": "GitFlow: Finish",
             "type": "shell",
-            "command": "./finish-${input:gitflowType}.sh ${input:gitflowName}"
+            "command": "./gitflow-finish.sh ${input:gitflowType} ${input:gitflowName}"
         },
         {
             "label": "Svelte: Create project",
