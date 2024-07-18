@@ -4,7 +4,9 @@
 
 # Unauthorized copying of this file, via any medium is strictly prohibited
 # Proprietary and confidential
-# Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 27 July 2024
+# Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 18 July 2024
+
+echo "Tag created: $(git describe --tags $(git rev-list --tags --max-count=1))"
 
 # Run npm update-version
 npm run update-version

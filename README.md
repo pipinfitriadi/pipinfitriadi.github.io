@@ -49,31 +49,25 @@ You can preview the production build with `npm run preview`.
 
 By setting up a custom Git hooks directory within your project and configuring Git to use it, you can ensure that your hooks are project-specific and managed within your version control system. This setup allows you to automate the process of running `npm run update-version` whenever you finish a `git flow hotfix` or `git flow release`, ensuring your versioning is always up to date without requiring manual intervention.
 
-1. Navigate to the custom hooks directory:
+1. Make the scripts executable:
 
     ```bash
-    cd .githooks
+    chmod +x finish-hotfix.sh
+    chmod +x finish-release.sh
     ```
 
-2. Make the scripts executable:
+2. Use the Custom Script:
+
+    Instead of using `git flow release finish` or `git flow hotfix finish`, use your custom script to finish the release and trigger the post-tag actions
 
     ```bash
-    chmod +x post-flow-release-finish
-    chmod +x post-flow-hotfix-finish
-    chmod +x post-merge
-    chmod +x post-checkout
+    ./finish-hotfix.sh <version>
+    ./finish-release.sh <version>
     ```
 
-3. Configure Git to use your custom hooks directory:
+3. Verify the Hooks
 
-    ```bash
-    cd ..
-    git config core.hooksPath .githooks
-    ```
-
-4. Verify the Hooks
-
-    Ensure that your `update-version.js` script and `package.json` are correctly set up as described earlier. When you finish a hotfix or release using `git flow`, the `npm run update-version` command should now run automatically.
+    When you finish a hotfix or release using step-2, the `npm run update-version` command should now run automatically.
 
     **Example Workflow**
 
@@ -94,10 +88,10 @@ By setting up a custom Git hooks directory within your project and configuring G
     3. Finish the hotfix:
 
         ```bash
-        git flow hotfix finish <version>
+        ./finish-hotfix.sh <version>
         ```
 
-        The `post-flow-hotfix-finish` hook will automatically trigger `npm run update-version`.
+        The `.githooks/post-tag.sh` hook will automatically trigger `npm run update-version`.
 
     Finishing a Release
 
@@ -110,13 +104,13 @@ By setting up a custom Git hooks directory within your project and configuring G
     2. Make changes and commit:
 
         ```bash
-        git commit -am "Hotfix changes"
+        git commit -am "Release changes"
         ```
 
     3. Finish the release:
 
         ```bash
-        git flow release finish <version>
+        ./finish-release.sh <version>
         ```
 
-        The `post-flow-release-finish` hook will automatically trigger `npm run update-version`.
+        The `.githooks/post-tag.sh` hook will automatically trigger `npm run update-version`.
