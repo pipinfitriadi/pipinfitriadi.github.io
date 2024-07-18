@@ -20,7 +20,7 @@ if [ -z "$version" ]; then
 fi
 
 # Finish the hotfix or release
-git flow "$gitflowName" "$version"
+git flow "$gitflowName" finish "$version"
 
 # Check if the hotfix or release finish was successful
 if [ $? -eq 0 ]; then
