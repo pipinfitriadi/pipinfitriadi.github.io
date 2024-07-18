@@ -4,7 +4,7 @@
         {
             "label": "GitFlow: Finish",
             "type": "shell",
-            "command": "./finish-${input:finishType}.sh ${input:version}"
+            "command": "./finish-${input:gitflowType}.sh ${input:gitflowName}"
         },
         {
             "label": "Svelte: Create project",
@@ -31,13 +31,18 @@
     "inputs": [
         {
             "type": "pickString",
-            "id": "finishType",
+            "id": "gitflowType",
             "description": "Choose a git flow finish type!",
             "options": [
                 "hotfix",
                 "release"
             ],
             "default": "release"
+        },
+        {
+            "id": "gitflowName",
+            "description": "Input a git flow name of Hotfix or Release!",
+            "type": "promptString"
         }
     ]
 }
