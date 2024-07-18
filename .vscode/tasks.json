@@ -2,6 +2,11 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "GitFlow: Finish",
+            "type": "shell",
+            "command": "./finish-${input:finishType}.sh ${input:version}"
+        },
+        {
             "label": "Svelte: Create project",
             "type": "shell",
             "command": "npm create svelte@latest",
@@ -21,6 +26,18 @@
             "type": "shell",
             "dependsOn": "Svelte: Build production",
             "command": "npm run preview"
+        }
+    ],
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "finishType",
+            "description": "Choose a git flow finish type!",
+            "options": [
+                "hotfix",
+                "release"
+            ],
+            "default": "release"
         }
     ]
 }
