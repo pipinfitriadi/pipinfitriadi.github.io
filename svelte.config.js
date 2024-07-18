@@ -9,9 +9,5 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
 import adapter from '@sveltejs/adapter-static';
 
 export default {
-	kit: {
-		adapter: adapter({
-			fallback: "404.html"
-		})
-	}
+	kit: {adapter: adapter()}
 };
