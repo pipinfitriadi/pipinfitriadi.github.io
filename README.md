@@ -52,8 +52,8 @@ By setting up a custom Git hooks directory within your project and configuring G
 1. Make the scripts executable:
 
     ```bash
-    chmod +x finish-hotfix.sh
-    chmod +x finish-release.sh
+    chmod +x .githooks/post-tag.sh
+    chmod +x gitflow-finish.sh
     ```
 
 2. Use the Custom Script:
@@ -61,8 +61,7 @@ By setting up a custom Git hooks directory within your project and configuring G
     Instead of using `git flow release finish` or `git flow hotfix finish`, use your custom script to finish the release and trigger the post-tag actions
 
     ```bash
-    ./finish-hotfix.sh <version>
-    ./finish-release.sh <version>
+    ./gitflow-finish.sh <gitflowName> <version>
     ```
 
 3. Verify the Hooks
@@ -88,7 +87,7 @@ By setting up a custom Git hooks directory within your project and configuring G
     3. Finish the hotfix:
 
         ```bash
-        ./finish-hotfix.sh <version>
+        ./gitflow-finish.sh hotfix <version>
         ```
 
         The `.githooks/post-tag.sh` hook will automatically trigger `npm run update-version`.
@@ -110,7 +109,7 @@ By setting up a custom Git hooks directory within your project and configuring G
     3. Finish the release:
 
         ```bash
-        ./finish-release.sh <version>
+        ./gitflow-finish.sh release <version>
         ```
 
         The `.githooks/post-tag.sh` hook will automatically trigger `npm run update-version`.
