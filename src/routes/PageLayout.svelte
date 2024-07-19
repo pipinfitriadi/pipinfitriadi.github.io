@@ -16,7 +16,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
 
 <style>
     footer {
-        position: absolute;
+        position: fixed;
         bottom: 0;
         left: 0;
         margin-left: 5px;

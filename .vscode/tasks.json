@@ -19,7 +19,7 @@
         {
             "label": "Svelte: Install Dependencies",
             "type": "shell",
-            "command": "npm install"
+            "command": "npm ci"
         },
         {
             "label": "Svelte: Linter Test",
