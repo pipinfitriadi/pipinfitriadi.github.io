@@ -6,6 +6,10 @@ Proprietary and confidential
 Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
 -->
 
+<script>
+    const appVersion = __APP_VERSION__;
+</script>
+
 <svelte:head>
     <title>VOXROW</title>
 </svelte:head>
@@ -14,7 +18,19 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
     <img src="/logo.svg" alt="VOXROW" title="VOXROW" />
 </div>
 
+<footer>{appVersion}</footer>
+
 <style>
+    footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin-left: 5px;
+        color: rgba(0, 0, 0, .25);
+        font-size: 8pt;
+        font-family: "Foo Regular", "Bar Sans", sans-serif;
+    }
+
     .voxrow {
         background-color: rgba(255, 255, 255, .75);
     }
