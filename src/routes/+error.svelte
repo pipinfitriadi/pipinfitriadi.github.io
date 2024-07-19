@@ -7,12 +7,16 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
 -->
 
 <script>
-	import { page } from '$app/stores';
+    import { page } from '$app/stores';
 </script>
 
 <svelte:head>
     <title>{$page.error?.message}</title>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Arvo" />
     <link rel="stylesheet" type="text/css" href="/error.css" />
 </svelte:head>

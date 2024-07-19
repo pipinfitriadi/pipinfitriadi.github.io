@@ -26,13 +26,13 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
         bottom: 0;
         left: 0;
         margin-left: 5px;
-        color: rgba(0, 0, 0, .25);
+        color: rgba(0, 0, 0, 0.25);
         font-size: 8pt;
-        font-family: "Foo Regular", "Bar Sans", sans-serif;
+        font-family: 'Foo Regular', 'Bar Sans', sans-serif;
     }
 
     .voxrow {
-        background-color: rgba(255, 255, 255, .75);
+        background-color: rgba(255, 255, 255, 0.75);
     }
 
     .voxrow > img {
@@ -40,7 +40,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
         -webkit-background-clip: text;
         background-clip: text;
         font-style: italic;
-        font-family: "Foo Regular", "Bar Sans", sans-serif;
+        font-family: 'Foo Regular', 'Bar Sans', sans-serif;
         font-size: 60pt;
         text-transform: uppercase;
         /*
@@ -64,48 +64,48 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
         */
         background-image: -webkit-radial-gradient(
             closest-side at 60% 55%,
-            #ADCC36,
-            #1790D4,
+            #adcc36,
+            #1790d4,
             #971497,
-            #97040C,
-            #FC6621,
-            #FECB2F
+            #97040c,
+            #fc6621,
+            #fecb2f
         ); /* For Chrome and Safari */
         background-image: -moz-radial-gradient(
             closest-side at 60% 55%,
-            #ADCC36,
-            #1790D4,
+            #adcc36,
+            #1790d4,
             #971497,
-            #97040C,
-            #FC6621,
-            #FECB2F
+            #97040c,
+            #fc6621,
+            #fecb2f
         ); /* For old Fx (3.6 to 15) */
         background-image: -ms-radial-gradient(
             closest-side at 60% 55%,
-            #ADCC36,
-            #1790D4,
+            #adcc36,
+            #1790d4,
             #971497,
-            #97040C,
-            #FC6621,
-            #FECB2F
+            #97040c,
+            #fc6621,
+            #fecb2f
         ); /* For pre-releases of IE 10*/
         background-image: -o-radial-gradient(
             closest-side at 60% 55%,
-            #ADCC36,
-            #1790D4,
+            #adcc36,
+            #1790d4,
             #971497,
-            #97040C,
-            #FC6621,
-            #FECB2F
+            #97040c,
+            #fc6621,
+            #fecb2f
         ); /* For old Opera (11.1 to 12.0) */
         background-image: radial-gradient(
             closest-side at 60% 55%,
-            #ADCC36,
-            #1790D4,
+            #adcc36,
+            #1790d4,
             #971497,
-            #97040C,
-            #FC6621,
-            #FECB2F
+            #97040c,
+            #fc6621,
+            #fecb2f
         ); /* Standard syntax; must be last */
         color: transparent;
 
@@ -124,11 +124,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
         SVG drop shadow using css3
         https://stackoverflow.com/questions/6088409/svg-drop-shadow-using-css3
         */
-        -webkit-filter: drop-shadow(
-            0 0 5px rgba(255, 255, 255, .75)
-        );
-        filter: drop-shadow(
-            0 0 5px rgba(255, 255, 255, .75)
-        );
+        -webkit-filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.75));
+        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.75));
     }
 </style>

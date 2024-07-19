@@ -9,17 +9,17 @@
         {
             "label": "Svelte: Create project",
             "type": "shell",
-            "command": "npm create svelte@latest",
+            "command": "npm create svelte@latest"
         },
         {
             "label": "Svelte: Install dependencies",
             "type": "shell",
-            "command": "npm install",
+            "command": "npm install"
         },
         {
             "label": "Svelte: Build production",
             "type": "shell",
-            "command": "npm run build",
+            "command": "npm run build"
         },
         {
             "label": "Svelte: Preview Prod",
@@ -33,10 +33,7 @@
             "type": "pickString",
             "id": "gitflowType",
             "description": "Choose a git flow finish type!",
-            "options": [
-                "hotfix",
-                "release"
-            ],
+            "options": ["hotfix", "release"],
             "default": "release"
         },
         {

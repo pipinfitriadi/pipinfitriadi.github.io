@@ -11,17 +11,16 @@ import { defineConfig } from 'vitest/config';
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 
-const
-	file = fileURLToPath(new URL('package.json', import.meta.url)),
-	json = readFileSync(file, 'utf8'),
-	pkg = JSON.parse(json);
+const file = fileURLToPath(new URL('package.json', import.meta.url)),
+    json = readFileSync(file, 'utf8'),
+    pkg = JSON.parse(json);
 
 export default defineConfig({
-	plugins: [sveltekit()],
-	define: {
-		'__APP_VERSION__': JSON.stringify(pkg.version)
-	},
-	test: {
-		include: ['src/**/*.{test,spec}.{js,ts}']
-	}
+    plugins: [sveltekit()],
+    define: {
+        __APP_VERSION__: JSON.stringify(pkg.version)
+    },
+    test: {
+        include: ['src/**/*.{test,spec}.{js,ts}']
+    }
 });

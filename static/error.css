@@ -21,7 +21,7 @@
 
 .four_zero_four_bg h1 {
     font-size: 80px;
-    text-shadow: 
+    text-shadow:
         #fff 0px 0px 2px,
         #fff 0px 0px 2px,
         #fff 0px 0px 2px,
@@ -34,8 +34,8 @@
     font-size: 80px;
 } */
 
-.link_404 {			 
-    color: #fff!important;
+.link_404 {
+    color: #fff !important;
     padding: 10px 20px;
     background: #39ac31;
     margin: 20px 0;
@@ -43,5 +43,5 @@
 }
 
 .contant_box_404 {
-    margin-top:-50px;
+    margin-top: -50px;
 }
