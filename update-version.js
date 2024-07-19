@@ -23,7 +23,7 @@ try {
     }
 
     // Validate and ensure the tag format is semantic versioning
-    const semverRegex = /^v?(\d+\.\d+\.\d+(-[\w\.]+)?)$/;
+    const semverRegex = '^v?(\\d+\\.\\d+\\.\\d+(-[\\w\\.]+)?)$';
     const match = latestTag.match(semverRegex);
 
     if (!match) {

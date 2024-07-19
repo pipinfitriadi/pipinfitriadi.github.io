@@ -17,6 +17,22 @@
             "command": "npm install"
         },
         {
+            "label": "Svelte: Linter Test",
+            "type": "shell",
+            "command": "npm run test"
+        },
+        {
+            "label": "Svelte: Linter Format",
+            "type": "shell",
+            "dependsOn": "Svelte: Linter Test",
+            "command": "npm run format"
+        },
+        {
+            "label": "Svelte: Unit and Integration Test",
+            "type": "shell",
+            "command": "npm run test"
+        },
+        {
             "label": "Svelte: Build production",
             "type": "shell",
             "command": "npm run build"
