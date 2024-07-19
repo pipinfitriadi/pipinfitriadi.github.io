@@ -19,7 +19,7 @@
         {
             "label": "Svelte: Linter Test",
             "type": "shell",
-            "command": "npm run test"
+            "command": "npm run lint"
         },
         {
             "label": "Svelte: Linter Format",
