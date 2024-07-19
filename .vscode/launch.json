@@ -6,12 +6,7 @@
             "request": "launch",
             "type": "node",
             "runtimeExecutable": "npm",
-            "runtimeArgs": [
-                "run",
-                "dev",
-                "--",
-                "--open"
-            ]
+            "runtimeArgs": ["run", "dev", "--", "--open"]
         }
     ]
 }
