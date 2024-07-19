@@ -1,4 +1,4 @@
-<!-- 
+<!--
 Copyright (C) Pipin Fitriadi - All Rights Reserved
 
 Unauthorized copying of this file, via any medium is strictly prohibited
@@ -44,6 +44,12 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+## Setup Playwright Test
+
+```bash
+npx playwright install
+```
 
 # Step-by-Step Guide to Setting Up Project-Specific Git Hooks
 

@@ -9,17 +9,33 @@
         {
             "label": "Svelte: Create project",
             "type": "shell",
-            "command": "npm create svelte@latest",
+            "command": "npm create svelte@latest"
         },
         {
-            "label": "Svelte: Install dependencies",
+            "label": "Svelte: Install Dependencies",
             "type": "shell",
-            "command": "npm install",
+            "command": "npm install"
+        },
+        {
+            "label": "Svelte: Linter Test",
+            "type": "shell",
+            "command": "npm run lint"
+        },
+        {
+            "label": "Svelte: Linter Format",
+            "type": "shell",
+            "dependsOn": "Svelte: Linter Test",
+            "command": "npm run format"
+        },
+        {
+            "label": "Svelte: Unit and Integration Test",
+            "type": "shell",
+            "command": "npm run test"
         },
         {
             "label": "Svelte: Build production",
             "type": "shell",
-            "command": "npm run build",
+            "command": "npm run build"
         },
         {
             "label": "Svelte: Preview Prod",
@@ -33,10 +49,7 @@
             "type": "pickString",
             "id": "gitflowType",
             "description": "Choose a git flow finish type!",
-            "options": [
-                "hotfix",
-                "release"
-            ],
+            "options": ["hotfix", "release"],
             "default": "release"
         },
         {
