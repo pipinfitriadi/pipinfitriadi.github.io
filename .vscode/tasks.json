@@ -2,9 +2,14 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "GitFlow: Versioning",
+            "type": "shell",
+            "command": "./.githooks/post-tag.sh"
+        },
+        {
             "label": "GitFlow: Finish",
             "type": "shell",
-            "command": "./gitflow-finish.sh ${input:gitflowType} ${input:gitflowName}"
+            "command": "./.githooks/gitflow-finish.sh ${input:gitflowType} ${input:gitflowName}"
         },
         {
             "label": "Svelte: Create project",
