@@ -13,6 +13,7 @@ do
     echo "Branch $branch"
     git checkout $branch
     npm run update-version
+    npm run format
     npm install --package-lock-only
     git commit -am "fix: update version on package.json"
 done
