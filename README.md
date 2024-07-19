@@ -45,6 +45,12 @@ You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
 
+## Setup Playwright Test
+
+```bash
+npx playwright install
+```
+
 # Step-by-Step Guide to Setting Up Project-Specific Git Hooks
 
 By setting up a custom Git hooks directory within your project and configuring Git to use it, you can ensure that your hooks are project-specific and managed within your version control system. This setup allows you to automate the process of running `npm run update-version` whenever you finish a `git flow hotfix` or `git flow release`, ensuring your versioning is always up to date without requiring manual intervention.

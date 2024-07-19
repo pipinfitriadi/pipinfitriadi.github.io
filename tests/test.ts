@@ -8,7 +8,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
 
 import { expect, test } from '@playwright/test';
 
-test('home page has expected h1', async ({ page }) => {
+test('home page has expected img', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('h1')).toBeVisible();
+    await expect(page.locator('img')).toBeVisible();
 });
