@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "vite dev",
-        "build": "vite build && npm run minify-html && npm run minify-css && npm run minify-svg",
+        "build": "vite build && npm run minify-html && npm run minify-svg",
         "preview": "vite preview",
         "test": "npm run test:integration && npm run test:unit",
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -14,7 +14,6 @@
         "test:integration": "playwright test",
         "test:unit": "vitest",
         "minify-html": "html-minifier-terser --input-dir build --output-dir build --file-ext html --collapse-whitespace --remove-comments --minify-css true --minify-js true",
-        "minify-css": "html-minifier-terser --output build/error.css --file-ext css --collapse-whitespace --remove-comments --minify-css true build/error.css",
         "minify-svg": "html-minifier-terser --input-dir build --output-dir build --file-ext svg --case-sensitive --collapse-whitespace --remove-comments",
         "update-version": "node update-version.js"
     },
