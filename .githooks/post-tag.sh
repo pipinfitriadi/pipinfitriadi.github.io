@@ -8,16 +8,12 @@
 
 echo "Tag created: $(git describe --tags $(git rev-list --tags --max-count=1))"
 
-# Run npm update-version
+for branch in develop main
+do
+    echo "Branch $branch"
+    git checkout $branch
+    npm run update-version
+    npm install --package-lock-only
+    git commit -am "fix: update version on package.json"
+done
 
-# Branch develop
-git checkout develop
-npm run update-version
-npm install --package-lock-only
-git commit -am "fix: update version on package.json"
-
-# Branch main
-git checkout main
-npm run update-version
-npm install --package-lock-only
-git commit -am "fix: update version on package.json"
