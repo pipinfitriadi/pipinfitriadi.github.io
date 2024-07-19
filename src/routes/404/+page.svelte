@@ -34,7 +34,9 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
                         <div class="contant_box_404">
                             <h3 class="h2">Look like you're lost</h3>
                             <p>the page you are looking for not avaible!</p>
-                            <a href="/" class="link_404">Go to Home</a>
+                            <a href="/" class="link_404">
+                                Go to <img src="/logo.svg" alt="VOXROW" title="VOXROW" />
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -84,8 +86,29 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         color: #fff !important;
         padding: 10px 20px;
         background: #39ac31;
+        border-color: #39ac31;
+        border-style: solid;
+        border-width: thin;
         margin: 20px 0;
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .link_404:hover {
+        color: #39ac31 !important;
+        background: #fff;
+    }
+
+    .link_404 img {
+        vertical-align: middle;
+        max-height: 30pt;
+        margin-left: 3px;
+        filter: brightness(0) invert(1);
+    }
+
+    .link_404:hover img {
+        filter: none;
     }
 
     .contant_box_404 {
