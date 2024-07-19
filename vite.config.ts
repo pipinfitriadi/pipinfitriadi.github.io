@@ -7,7 +7,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
 */
 
 import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 
@@ -20,5 +20,8 @@ export default defineConfig({
 	plugins: [sveltekit()],
 	define: {
 		'__APP_VERSION__': JSON.stringify(pkg.version)
+	},
+	test: {
+		include: ['src/**/*.{test,spec}.{js,ts}']
 	}
 });
