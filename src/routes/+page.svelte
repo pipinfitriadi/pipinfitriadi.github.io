@@ -26,32 +26,32 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
     }
 
     .voxrow > img {
-        /* Style Alternative Text */
+        /** Style Alternative Text */
         -webkit-background-clip: text;
         background-clip: text;
         font-style: italic;
         font-family: 'Foo Regular', 'Bar Sans', sans-serif;
         font-size: 60pt;
         text-transform: uppercase;
-        /*
-        New line in text area
-        https://stackoverflow.com/questions/8627902/new-line-in-text-area
-        */
+        /**
+         * New line in text area
+         * https://stackoverflow.com/questions/8627902/new-line-in-text-area
+         */
         text-align: center;
         white-space: pre-wrap;
-        /*
-        How do I vertically center text with CSS? [duplicate]
-        https://stackoverflow.com/questions/8865458/how-do-i-vertically-center-text-with-css
-        */
+        /**
+         * How do I vertically center text with CSS? [duplicate]
+         * https://stackoverflow.com/questions/8865458/how-do-i-vertically-center-text-with-css
+         */
         display: flex;
         justify-content: center;
         align-items: center;
-        /*
-        Gradient text color
-        https://stackoverflow.com/questions/37831837/gradient-text-color
-        CSS Gradients
-        https://www.w3schools.com/css/css3_gradients.asp
-        */
+        /**
+         * Gradient text color
+         * https://stackoverflow.com/questions/37831837/gradient-text-color
+         * CSS Gradients
+         * https://www.w3schools.com/css/css3_gradients.asp
+         */
         background-image: -webkit-radial-gradient(
             closest-side at 60% 55%,
             #adcc36,
@@ -60,7 +60,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
             #97040c,
             #fc6621,
             #fecb2f
-        ); /* For Chrome and Safari */
+        ); /** For Chrome and Safari */
         background-image: -moz-radial-gradient(
             closest-side at 60% 55%,
             #adcc36,
@@ -69,7 +69,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
             #97040c,
             #fc6621,
             #fecb2f
-        ); /* For old Fx (3.6 to 15) */
+        ); /** For old Fx (3.6 to 15) */
         background-image: -ms-radial-gradient(
             closest-side at 60% 55%,
             #adcc36,
@@ -78,7 +78,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
             #97040c,
             #fc6621,
             #fecb2f
-        ); /* For pre-releases of IE 10*/
+        ); /** For pre-releases of IE 10 */
         background-image: -o-radial-gradient(
             closest-side at 60% 55%,
             #adcc36,

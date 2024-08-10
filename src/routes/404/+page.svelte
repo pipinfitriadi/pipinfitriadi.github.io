@@ -46,20 +46,17 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
 </PageLayout>
 
 <style>
-    /*================================================================
-        404 page
-        https://codepen.io/Navedkhan012/pen/vrWQMY
-    =================================================================*/
-
+    /**
+     * 404 page
+     * https://codepen.io/Navedkhan012/pen/vrWQMY
+     */
     .page_404 {
         padding: 40px 0;
         background: #fff;
         font-family: 'Arvo', serif;
     }
 
-    /* .page_404 img {
-        width: 100%;
-    } */
+    /** .page_404 img {width: 100%;} */
 
     .four_zero_four_bg {
         background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
@@ -78,9 +75,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
             #fff 0px 0px 2px;
     }
 
-    /* .four_zero_four_bg h3 {
-        font-size: 80px;
-    } */
+    /** .four_zero_four_bg h3 {font-size: 80px;} */
 
     .link_404 {
         color: #fff !important;
