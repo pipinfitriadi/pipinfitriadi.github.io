@@ -10,7 +10,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
     const appVersion = __APP_VERSION__;
 </script>
 
-<slot name="main" />
+<slot />
 
 <footer>Version: {appVersion}</footer>
 

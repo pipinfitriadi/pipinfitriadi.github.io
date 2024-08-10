@@ -7,8 +7,6 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
 -->
 
 <script>
-    import PageLayout from './../PageLayout.svelte';
-
     export let title = 'Not Found';
 </script>
 
@@ -22,28 +20,26 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Arvo" />
 </svelte:head>
 
-<PageLayout>
-    <section slot="main" class="page_404">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="col-sm-10 col-sm-offset-1 text-center">
-                        <div class="four_zero_four_bg">
-                            <h1 class="text-center">{title}</h1>
-                        </div>
-                        <div class="contant_box_404">
-                            <h3 class="h2">Look like you're lost</h3>
-                            <p>the page you are looking for not avaible!</p>
-                            <a href="/" class="link_404">
-                                Go to <img src="/logo.svg" alt="VOXROW" title="VOXROW" />
-                            </a>
-                        </div>
+<section class="page_404">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-10 col-sm-offset-1 text-center">
+                    <div class="four_zero_four_bg">
+                        <h1 class="text-center">{title}</h1>
+                    </div>
+                    <div class="contant_box_404">
+                        <h3 class="h2">Look like you're lost</h3>
+                        <p>the page you are looking for not avaible!</p>
+                        <a href="/" class="link_404">
+                            Go to <img src="/logo.svg" alt="VOXROW" title="VOXROW" />
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-</PageLayout>
+    </div>
+</section>
 
 <style>
     /**

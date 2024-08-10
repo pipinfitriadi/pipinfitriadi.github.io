@@ -6,19 +6,13 @@ Proprietary and confidential
 Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
 -->
 
-<script>
-    import PageLayout from './PageLayout.svelte';
-</script>
-
 <svelte:head>
     <title>VOXROW</title>
 </svelte:head>
 
-<PageLayout>
-    <main slot="main" class="voxrow">
-        <img src="/logo.svg" alt="VOXROW" title="VOXROW" />
-    </main>
-</PageLayout>
+<main class="voxrow">
+    <img src="/logo.svg" alt="VOXROW" title="VOXROW" />
+</main>
 
 <style>
     .voxrow {
