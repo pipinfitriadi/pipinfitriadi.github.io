@@ -38,7 +38,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         const decodedToken = parseJwt(response.credential);
 
         userName = decodedToken.name;
-        alt = userName;
+        alt = decodedToken.email;
         src = decodedToken.picture;
 
         console.log('Encoded JWT ID token: ' + response.credential);
@@ -85,16 +85,25 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 </svelte:head>
 
-<button on:click={switchAccount}>
-    <img {src} {alt} />
-    <span>{userName}</span>
-</button>
+<header>
+    <button title={alt} on:click={switchAccount}>
+        <span>{userName}</span>
+        <img {src} {alt} />
+    </button>
+</header>
 
 <slot />
 
 <footer>Version: {appVersion}</footer>
 
 <style>
+    header {
+        position: fixed;
+        right: 0;
+        margin-right: 5px;
+        margin-top: 5px;
+    }
+
     button {
         display: inline-flex;
         align-items: center;
@@ -114,7 +123,8 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         transition: background-color 0.3s;
     }
 
-    button:hover {
+    button:hover,
+    button:focus {
         background-color: #3367d6; /* Slightly darker blue on hover */
     }
 
@@ -123,33 +133,41 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
     }
 
     button img {
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
         height: 16px;
         width: 16px;
         border-radius: 50%; /* Make the logo a round circle */
         background-color: #ffffff; /* White background for the logo */
         padding: 2px; /* Padding inside the circle to create some space around the logo */
-        margin-right: 0; /* Space between logo and text */
-        transition: margin-right 0.3s;
+        margin-left: 0; /* Space between logo and text */
+        transition: margin-left 0.3s;
     }
 
     button:hover img,
+    button:focus img,
     button:active img {
-        margin-right: 8px;
+        margin-left: 8px;
     }
 
     button span {
         white-space: nowrap;
-        font-size: 0;
-        margin-right: 0;
+        font-size: 12px;
+        opacity: 0;
+        width: 0;
+        margin-left: 0;
+        transition:
+            auto 0.3s,
+            margin-left 0.3s;
     }
 
     button:hover span,
+    button:focus span,
     button:active span {
-        font-size: 12px;
-        margin-right: 8px;
-        transition:
-            font-size 0.3s,
-            margin-right 0.3s;
+        opacity: 1;
+        width: auto;
+        margin-left: 8px;
     }
 
     footer {
