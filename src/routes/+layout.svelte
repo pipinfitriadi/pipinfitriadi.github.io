@@ -38,17 +38,26 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
     }
 
     /**
-     * @param {{ credential: string; }} response
+     * @param {string} token
      */
-    function handleCredentialResponse(response) {
-        const decodedToken = parseJwt(response.credential);
+    function handleCredentialResponse(token) {
+        const decodedToken = parseJwt(token);
 
         userName = decodedToken.name;
         alt = decodedToken.email;
         src = decodedToken.picture;
+    }
+
+    /**
+     * @param {{ credential: string; }} response
+     */
+    function callbackGIS(response) {
+        const googleToken = response.credential;
+
+        handleCredentialResponse(googleToken);
 
         // You can store this in localStorage or pass it to your backend if needed
-        localStorage.setItem('googleToken', response.credential);
+        localStorage.setItem('googleToken', googleToken);
     }
 
     // Function to re-trigger the Google One Tap prompt (for account switching)
@@ -61,7 +70,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
     onMount(() => {
         window.google.accounts.id.initialize({
             client_id: '1084721860548-vnjs2l4cifur6b4b072gldcoiev6uu1f.apps.googleusercontent.com',
-            callback: handleCredentialResponse,
+            callback: callbackGIS,
             close_on_tap_outside: false,
             context: 'use',
             itp_support: true
@@ -72,11 +81,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
 
         if (googleToken) {
             // User is logged in
-            const decodedToken = parseJwt(googleToken);
-
-            userName = decodedToken.name;
-            alt = userName;
-            src = decodedToken.picture;
+            handleCredentialResponse(googleToken);
         } else {
             switchAccount();
         }
