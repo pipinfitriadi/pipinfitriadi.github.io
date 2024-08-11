@@ -22,7 +22,7 @@ Thumbs.db
 !.env.example
 !.env.test
 
-# PlayWright
+# Playwright
 test-results/
 
 # Vite

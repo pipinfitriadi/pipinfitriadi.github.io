@@ -24,6 +24,8 @@ jobs:
               run: npm ci
             - name: Linter Test
               run: npm run lint
+            - name: Install Playwright browser
+              run: npx playwright install
             - name: Unit and Integration Test
               run: npm run test
             - name: Build
