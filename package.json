@@ -12,7 +12,7 @@
         "lint": "prettier --check . && eslint .",
         "format": "prettier --write .",
         "test:integration": "playwright test",
-        "test:unit": "vitest",
+        "test:unit": "vitest --run",
         "minify-html": "html-minifier-terser --input-dir build --output-dir build --file-ext html --collapse-whitespace --remove-comments --minify-css true --minify-js true",
         "minify-svg": "html-minifier-terser --input-dir build --output-dir build --file-ext svg --case-sensitive --collapse-whitespace --remove-comments",
         "update-version": "node update-version.js"

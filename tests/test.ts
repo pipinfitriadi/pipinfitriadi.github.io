@@ -10,5 +10,5 @@ import { expect, test } from '@playwright/test';
 
 test('home page has expected img', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('img')).toBeVisible();
+    await expect(page.locator('main > img')).toBeVisible();
 });
