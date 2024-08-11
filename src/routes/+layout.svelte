@@ -14,6 +14,9 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         alt = 'Google logo',
         src = 'https://developers.google.com/identity/images/g-logo.png';
 
+    /**
+     * @param {string} token
+     */
     function parseJwt(token) {
         try {
             const base64Url = token.split('.')[1];
@@ -34,6 +37,9 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         }
     }
 
+    /**
+     * @param {{ credential: string; }} response
+     */
     function handleCredentialResponse(response) {
         const decodedToken = parseJwt(response.credential);
 
@@ -41,7 +47,6 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         alt = decodedToken.email;
         src = decodedToken.picture;
 
-        console.log('Encoded JWT ID token: ' + response.credential);
         // You can store this in localStorage or pass it to your backend if needed
         localStorage.setItem('googleToken', response.credential);
     }
@@ -67,8 +72,6 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
 
         if (googleToken) {
             // User is logged in
-            console.log('User is logged in with Google');
-
             const decodedToken = parseJwt(googleToken);
 
             userName = decodedToken.name;
