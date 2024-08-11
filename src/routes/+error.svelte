@@ -88,7 +88,9 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
         text-decoration: none;
     }
 
-    .link_404:hover {
+    .link_404:hover,
+    .link_404:focus,
+    .link_404:active {
         color: #39ac31 !important;
         background: #fff;
     }
@@ -100,7 +102,9 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
         filter: brightness(0) invert(1);
     }
 
-    .link_404:hover img {
+    .link_404:hover img,
+    .link_404:focus img,
+    .link_404:active img {
         filter: none;
     }
 
