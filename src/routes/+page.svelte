@@ -81,7 +81,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
             #97040c,
             #fc6621,
             #fecb2f
-        ); /* For old Opera (11.1 to 12.0) */
+        ); /** For old Opera (11.1 to 12.0) */
         background-image: radial-gradient(
             closest-side at 60% 55%,
             #adcc36,
@@ -90,13 +90,13 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 17 July 2024
             #97040c,
             #fc6621,
             #fecb2f
-        ); /* Standard syntax; must be last */
+        ); /** Standard syntax; must be last */
         color: transparent;
 
-        /* 
-        True Center Vertical and Horizontal CSS Div [duplicate]
-        https://stackoverflow.com/questions/14189625/true-center-vertical-and-horizontal-css-div
-        */
+        /** 
+         * True Center Vertical and Horizontal CSS Div [duplicate]
+         * https://stackoverflow.com/questions/14189625/true-center-vertical-and-horizontal-css-div
+         */
         position: absolute;
         top: 0;
         right: 0;
