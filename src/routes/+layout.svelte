@@ -9,11 +9,13 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
 <script>
     import { onMount } from 'svelte';
 
-    const appVersion = __APP_VERSION__;
-    let alt = 'g',
-        email = 'Google',
-        name = 'Continue with Google',
-        picture = 'https://developers.google.com/identity/images/g-logo.png';
+    const appVersion = __APP_VERSION__,
+        EMAIL = '',
+        NAME = 'Continue with Google',
+        PICTURE = 'https://developers.google.com/identity/images/g-logo.png';
+    let email = EMAIL,
+        name = NAME,
+        picture = PICTURE;
 
     /**
      * @param {string} token
@@ -47,8 +49,6 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         email = decodedToken.email;
         name = decodedToken.name;
         picture = decodedToken.picture;
-
-        alt = email[0].toLowerCase();
 
         return decodedToken.exp * 1e3;
     }
@@ -88,6 +88,9 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
             expiredAt = localStorage.getItem('expiredAt');
 
         if (!googleToken || Date.now() >= Number(expiredAt)) {
+            email = EMAIL;
+            name = NAME;
+            picture = PICTURE;
             localStorage.removeItem('googleToken');
             localStorage.removeItem('expiredAt');
             switchAccount();
@@ -104,9 +107,12 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
 </svelte:head>
 
 <header>
-    <button title={email} on:click={switchAccount}>
-        <span>{name}</span>
-        <img src={picture} {alt} />
+    <button on:click={switchAccount}>
+        <dl>
+            <dt>{name}</dt>
+            <dd>{email}</dd>
+        </dl>
+        <img src={picture} alt="🤡" />
     </button>
 </header>
 
@@ -116,6 +122,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
 
 <style>
     header {
+        z-index: 1;
         position: fixed;
         right: 0;
         margin-right: 5px;
@@ -127,13 +134,16 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         align-items: center;
         justify-content: center;
         padding: 2px; /** Smaller padding for a more compact button */
+        height: 20px;
         border: none;
-        border-radius: 20px; /** Pill shape */
-        background-color: #4285f4; /** Google's blue */
+        border-radius: 10px; /** Pill shape */
+        background-color: #1a73e8; /** Google's blue */
         color: #ffffff;
-        font-family: Roboto, sans-serif;
-        font-size: 12px; /** Smaller font for a compact button */
-        font-weight: 500;
+        font-family: 'Google Sans', Roboto, arial, sans-serif;
+        font-size: 11px; /** Smaller font for a compact button */
+        letter-spacing: 0.3px;
+        font-weight: 300;
+        text-overflow: ellipsis;
         cursor: pointer;
         text-align: center;
         width: auto;
@@ -141,66 +151,73 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         transition: background-color 0.3s;
     }
 
-    button:hover,
-    button:focus {
-        background-color: #3367d6; /** Slightly darker blue on hover */
-    }
-
     button:active {
-        background-color: #2a56c6; /** Even darker blue when active */
+        background-color: #5195ee;
     }
 
     button img {
         -webkit-box-sizing: content-box;
         -moz-box-sizing: content-box;
         box-sizing: content-box;
-        color: #4285f4;
         height: 16px;
         width: 16px;
-        line-height: 16px;
+        line-height: 18px;
         border-radius: 50%; /** Make the logo a round circle */
         background-color: #ffffff; /** White background for the logo */
-        padding: 2px; /** Padding inside the circle to create some space around the logo */
         margin-left: 0; /** Space between logo and text */
         transition: margin-left 0.3s;
     }
 
     button:hover img,
-    button:focus img {
-        color: #3367d6; /** Slightly darker blue on hover */
-        margin-left: 8px;
-    }
-
+    button:focus img,
     button:active img {
-        color: #2a56c6; /** Even darker blue when active */
         margin-left: 8px;
     }
 
-    button span {
+    button dl {
+        text-align: right;
         white-space: nowrap;
-        font-size: 12px;
         opacity: 0;
         width: 0;
         margin-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
         transition:
             auto 0.3s,
             margin-left 0.3s;
     }
 
-    button:hover span,
-    button:focus span,
-    button:active span {
+    button:hover dl,
+    button:focus dl,
+    button:active dl {
         opacity: 1;
         width: auto;
         margin-left: 8px;
     }
 
+    button dl:has(dd:not(:empty)) dt {
+        font-size: 9px;
+    }
+
+    button dl dt {
+        line-height: normal;
+        font-weight: lighter;
+    }
+
+    button dl dd {
+        line-height: normal;
+        font-weight: lighter;
+        font-size: 6px;
+        font-style: italic;
+        opacity: 0.64;
+        margin-left: 0;
+    }
+
     footer {
         position: fixed;
         bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        margin-left: 5px;
+        width: 100%;
+        text-align: center;
         margin-bottom: 5px;
         color: rgba(0, 0, 0, 0.25);
         font-size: 8pt;
