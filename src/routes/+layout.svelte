@@ -190,9 +190,8 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
     footer {
         position: fixed;
         bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        margin-left: 5px;
+        width: 100%;
+        text-align: center;
         margin-bottom: 5px;
         color: rgba(0, 0, 0, 0.25);
         font-size: 8pt;
