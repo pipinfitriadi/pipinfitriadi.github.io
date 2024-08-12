@@ -7,6 +7,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
 -->
 
 <script>
+    import { parse, serialize } from 'cookie';
     import { onMount } from 'svelte';
 
     const appVersion = __APP_VERSION__,
@@ -43,26 +44,29 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
     /**
      * @param {string} token
      */
-    function handleCredentialResponse(token) {
+    function loginSuccess(token) {
         const decodedToken = parseJwt(token);
 
         email = decodedToken.email;
         name = decodedToken.name;
         picture = decodedToken.picture;
 
-        return decodedToken.exp * 1e3;
+        return new Date(decodedToken.exp * 1e3);
     }
 
     /**
      * @param {{ credential: string; }} response
      */
     function callbackGIS(response) {
-        const googleToken = response.credential,
-            expiredAt = handleCredentialResponse(googleToken).toString();
+        const googleToken = response.credential;
 
-        // You can store this in localStorage or pass it to your backend if needed
-        localStorage.setItem('googleToken', googleToken);
-        localStorage.setItem('expiredAt', expiredAt);
+        document.cookie = serialize('googleToken', googleToken, {
+            path: '/',
+            httpOnly: false, // set to true if you don't want client-side access
+            expires: loginSuccess(googleToken),
+            sameSite: 'strict',
+            secure: true // Only sent over HTTPS
+        });
     }
 
     // Function to re-trigger the Google One Tap prompt (for account switching)
@@ -78,25 +82,23 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
             auto_select: true,
             callback: callbackGIS,
             cancel_on_tap_outside: false,
+            skip_prompt_cookie: 'googleToken',
+            state_cookie_domain: 'voxrow.com',
             context: 'use',
             itp_support: true,
             use_fedcm_for_prompt: true
         });
 
         // Access the stored token
-        const googleToken = localStorage.getItem('googleToken'),
-            expiredAt = localStorage.getItem('expiredAt');
+        const googleToken = parse(document.cookie)['googleToken'];
 
-        if (!googleToken || Date.now() >= Number(expiredAt)) {
+        if (!googleToken) {
             email = EMAIL;
             name = NAME;
             picture = PICTURE;
-            localStorage.removeItem('googleToken');
-            localStorage.removeItem('expiredAt');
             switchAccount();
         } else {
-            // User is logged in
-            handleCredentialResponse(googleToken);
+            loginSuccess(googleToken);
         }
     });
 </script>
