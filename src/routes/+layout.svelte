@@ -113,6 +113,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
 
 <style>
     header {
+        z-index: 1;
         position: fixed;
         right: 0;
         margin-right: 5px;
