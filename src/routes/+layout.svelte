@@ -9,10 +9,13 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
 <script>
     import { onMount } from 'svelte';
 
-    const appVersion = __APP_VERSION__;
-    let email = 'Google',
-        name = 'Continue with Google',
-        picture = 'https://developers.google.com/identity/images/g-logo.png';
+    const appVersion = __APP_VERSION__,
+        EMAIL = '',
+        NAME = 'Continue with Google',
+        PICTURE = 'https://developers.google.com/identity/images/g-logo.png';
+    let email = EMAIL,
+        name = NAME,
+        picture = PICTURE;
 
     /**
      * @param {string} token
@@ -85,6 +88,9 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
             expiredAt = localStorage.getItem('expiredAt');
 
         if (!googleToken || Date.now() >= Number(expiredAt)) {
+            email = EMAIL;
+            name = NAME;
+            picture = PICTURE;
             localStorage.removeItem('googleToken');
             localStorage.removeItem('expiredAt');
             switchAccount();
@@ -101,8 +107,11 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
 </svelte:head>
 
 <header>
-    <button title={email} on:click={switchAccount}>
-        <span>{name}</span>
+    <button on:click={switchAccount}>
+        <dl>
+            <dt>{name}</dt>
+            <dd>{email}</dd>
+        </dl>
         <img src={picture} alt="🤡" />
     </button>
 </header>
@@ -165,22 +174,43 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         margin-left: 8px;
     }
 
-    button span {
+    button dl {
+        text-align: right;
         white-space: nowrap;
         opacity: 0;
         width: 0;
         margin-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
         transition:
             auto 0.3s,
             margin-left 0.3s;
     }
 
-    button:hover span,
-    button:focus span,
-    button:active span {
+    button:hover dl,
+    button:focus dl,
+    button:active dl {
         opacity: 1;
         width: auto;
         margin-left: 8px;
+    }
+
+    button dl:has(dd:not(:empty)) dt {
+        font-size: 9px;
+    }
+
+    button dl dt {
+        line-height: normal;
+        font-weight: lighter;
+    }
+
+    button dl dd {
+        line-height: normal;
+        font-weight: lighter;
+        font-size: 6px;
+        font-style: italic;
+        opacity: 0.64;
+        margin-left: 0;
     }
 
     footer {
