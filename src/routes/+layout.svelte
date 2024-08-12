@@ -125,13 +125,16 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         align-items: center;
         justify-content: center;
         padding: 2px; /** Smaller padding for a more compact button */
+        height: 20px;
         border: none;
-        border-radius: 20px; /** Pill shape */
-        background-color: #4285f4; /** Google's blue */
+        border-radius: 10px; /** Pill shape */
+        background-color: #1a73e8; /** Google's blue */
         color: #ffffff;
-        font-family: Roboto, sans-serif;
-        font-size: 12px; /** Smaller font for a compact button */
-        font-weight: 500;
+        font-family: 'Google Sans', Roboto, arial, sans-serif;
+        font-size: 11px; /** Smaller font for a compact button */
+        letter-spacing: 0.3px;
+        font-weight: 300;
+        text-overflow: ellipsis;
         cursor: pointer;
         text-align: center;
         width: auto;
@@ -139,13 +142,8 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         transition: background-color 0.3s;
     }
 
-    button:hover,
-    button:focus {
-        background-color: #3367d6; /** Slightly darker blue on hover */
-    }
-
     button:active {
-        background-color: #2a56c6; /** Even darker blue when active */
+        background-color: #5195ee;
     }
 
     button img {
@@ -157,7 +155,6 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         line-height: 18px;
         border-radius: 50%; /** Make the logo a round circle */
         background-color: #ffffff; /** White background for the logo */
-        padding: 2px; /** Padding inside the circle to create some space around the logo */
         margin-left: 0; /** Space between logo and text */
         transition: margin-left 0.3s;
     }
@@ -170,7 +167,6 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
 
     button span {
         white-space: nowrap;
-        font-size: 12px;
         opacity: 0;
         width: 0;
         margin-left: 0;
