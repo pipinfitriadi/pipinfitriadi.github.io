@@ -108,10 +108,10 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
 
 <header>
     <button on:click={switchAccount}>
-        <dl>
-            <dt>{name}</dt>
-            <dd>{email}</dd>
-        </dl>
+        <span>
+            {name}
+            <dfn>{email}</dfn>
+        </span>
         <img src={picture} alt="🤡" />
     </button>
 </header>
@@ -137,17 +137,15 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         height: 20px;
         border: none;
         border-radius: 10px; /** Pill shape */
-        background-color: #1a73e8; /** Google's blue */
         color: #ffffff;
         font-family: 'Google Sans', Roboto, arial, sans-serif;
         font-size: 11px; /** Smaller font for a compact button */
-        letter-spacing: 0.3px;
         font-weight: 300;
-        text-overflow: ellipsis;
+        letter-spacing: 0.3px;
         cursor: pointer;
         text-align: center;
         width: auto;
-        overflow: hidden;
+        background-color: #1a73e8; /** Google's blue */
         transition: background-color 0.3s;
     }
 
@@ -174,43 +172,34 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         margin-left: 8px;
     }
 
-    button dl {
+    button span {
+        line-height: normal;
         text-align: right;
         white-space: nowrap;
-        opacity: 0;
-        width: 0;
         margin-left: 0;
-        margin-top: 0;
-        margin-bottom: 0;
+        width: 0;
+        opacity: 0;
         transition:
-            auto 0.3s,
-            margin-left 0.3s;
+            margin-left 0.3s,
+            width 0.3s;
     }
 
-    button:hover dl,
-    button:focus dl,
-    button:active dl {
-        opacity: 1;
-        width: auto;
+    button:hover span,
+    button:focus span,
+    button:active span {
         margin-left: 8px;
+        width: auto;
+        opacity: 1;
     }
 
-    button dl:has(dd:not(:empty)) dt {
+    button span:has(dfn:not(:empty)) {
         font-size: 9px;
     }
 
-    button dl dt {
-        line-height: normal;
-        font-weight: lighter;
-    }
-
-    button dl dd {
-        line-height: normal;
-        font-weight: lighter;
+    button span dfn {
         font-size: 6px;
-        font-style: italic;
+        display: block;
         opacity: 0.75;
-        margin-left: 0;
     }
 
     footer {
