@@ -6,22 +6,14 @@ Proprietary and confidential
 Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
 -->
 
-<script>
+<script lang="ts">
     import { parse, serialize } from 'cookie';
     import { onMount } from 'svelte';
 
-    const appVersion = __APP_VERSION__,
-        EMAIL = '',
-        NAME = 'Continue with Google',
-        PICTURE = 'https://developers.google.com/identity/images/g-logo.png';
-    let email = EMAIL,
-        name = NAME,
-        picture = PICTURE;
+    const appVersion = __APP_VERSION__;
+    let email: string, name: string, picture: string;
 
-    /**
-     * @param {string} token
-     */
-    function parseJwt(token) {
+    function parseJwt(token: string) {
         try {
             const base64Url = token.split('.')[1],
                 base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/'),
@@ -41,10 +33,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         }
     }
 
-    /**
-     * @param {string} token
-     */
-    function loginSuccess(token) {
+    function loginSuccess(token: string) {
         const decodedToken = parseJwt(token);
 
         email = decodedToken.email;
@@ -54,10 +43,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         return new Date(decodedToken.exp * 1e3);
     }
 
-    /**
-     * @param {{ credential: string; }} response
-     */
-    function callbackGIS(response) {
+    function callbackGIS(response: { credential: string }) {
         const googleToken = response.credential;
 
         document.cookie = serialize('googleToken', googleToken, {
@@ -72,31 +58,43 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
     // Function to re-trigger the Google One Tap prompt (for account switching)
     function switchAccount() {
         if (typeof window !== 'undefined') {
-            window.google.accounts.id.prompt(); // Re-trigger the One Tap prompt
+            if (window.google) {
+                window.google.accounts.id.prompt(); // Re-trigger the One Tap prompt
+            }
         }
     }
 
     onMount(() => {
-        window.google.accounts.id.initialize({
-            client_id: '1084721860548-vnjs2l4cifur6b4b072gldcoiev6uu1f.apps.googleusercontent.com',
-            auto_select: true,
-            callback: callbackGIS,
-            cancel_on_tap_outside: false,
-            skip_prompt_cookie: 'googleToken',
-            state_cookie_domain: 'voxrow.com',
-            context: 'use',
-            itp_support: true,
-            use_fedcm_for_prompt: true
-        });
+        if (typeof window !== 'undefined') {
+            window.addEventListener('load', () => {
+                if (window.google) {
+                    window.google.accounts.id.initialize({
+                        client_id:
+                            '1084721860548-vnjs2l4cifur6b4b072gldcoiev6uu1f.apps.googleusercontent.com',
+                        auto_select: true,
+                        callback: callbackGIS,
+                        cancel_on_tap_outside: false,
+                        skip_prompt_cookie: 'googleToken',
+                        state_cookie_domain: 'voxrow.com',
+                        context: 'use',
+                        itp_support: true,
+                        use_fedcm_for_prompt: true
+                    });
+                }
+            });
+        }
 
         // Access the stored token
         const googleToken = parse(document.cookie)['googleToken'];
 
         if (!googleToken) {
-            email = EMAIL;
-            name = NAME;
-            picture = PICTURE;
-            switchAccount();
+            email = '';
+            name = 'Continue with Google';
+            picture = 'https://developers.google.com/identity/images/g-logo.png';
+
+            window.addEventListener('load', () => {
+                switchAccount();
+            });
         } else {
             loginSuccess(googleToken);
         }
@@ -132,7 +130,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
     }
 
     button {
-        display: inline-flex;
+        display: flex;
         align-items: center;
         justify-content: center;
         padding: 2px; /** Smaller padding for a more compact button */
@@ -211,7 +209,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
         font-weight: lighter;
         font-size: 6px;
         font-style: italic;
-        opacity: 0.64;
+        opacity: 0.75;
         margin-left: 0;
     }
 
