@@ -132,7 +132,7 @@ Written by Pipin Fitriadi <pipinfitriadi@gmail.com>, 19 July 2024
     }
 
     button {
-        display: inline-flex;
+        display: flex;
         align-items: center;
         justify-content: center;
         padding: 2px; /** Smaller padding for a more compact button */
