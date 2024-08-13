@@ -7,7 +7,11 @@
  */
 
 import adapter from '@sveltejs/adapter-static';
+import sveltePreprocess from 'svelte-preprocess';
 
 export default {
+    preprocess: sveltePreprocess({
+        typescript: true
+    }),
     kit: { adapter: adapter() }
 };
